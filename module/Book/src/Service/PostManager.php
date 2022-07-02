@@ -43,6 +43,15 @@ class PostManager
         $this->entityManager->flush();
     }
 
+    public function transformData(Book $book): array
+    {
+        return [
+            'title' => $book->getTitle(),
+            'description' => $book->getDescription(),
+            'author_id' => $book->getAuthorId()
+        ];
+    }
+
     private function getAuthor(int $id): Author
     {
         return $this->entityManager
