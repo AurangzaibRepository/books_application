@@ -49,7 +49,6 @@ class PostController extends AbstractActionController
     public function deleteAction()
     {
         $bookId = $this->params()->fromRoute('id', 0);
-
         $book = $this->postManager->getBook($bookId);
 
         if ($book === null) {
@@ -65,6 +64,11 @@ class PostController extends AbstractActionController
     public function editAction()
     {
         $form = new PostForm($this->entityManager);
+
+        $bookId = $this->params()->fromRoute('id', 0);
+        $book = $this->postManager->getBook($bookId);
+
+        $form->setData($this->postManager->transformData($book));
 
         return new ViewModel([
             'form' => $form
