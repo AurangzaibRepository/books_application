@@ -52,4 +52,40 @@ class PostForm extends Form
             ]
         ]);
     }
+
+    private function addInputFilters()
+    {
+        $inputFilter = new InputFilter();
+        $this->setInputFilter($inputFilter);
+
+        $inputFilter->add([
+            'name' => 'title',
+            'required' => true,
+            'validator' => [
+                [
+                    'name' => 'NotEmpty',
+                    'options' => [
+                        'messages' => [
+                            NotEmpty::IS_EMPTY => 'Title required'
+                        ],
+                    ],
+                ],
+            ],
+        ]);
+
+        $inputFilter->add([
+            'name' => 'descripion',
+            'required' => true,
+            'validators' => [
+                [
+                    'name' => 'NotEmpty',
+                    'options' => [
+                        'messages' => [
+                            NotEmpty::IS_EMPTY => 'Decription required'
+                        ],
+                    ],
+                ],
+            ],
+        ]);
+    }
 }
