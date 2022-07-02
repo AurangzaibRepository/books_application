@@ -94,5 +94,10 @@ class PostForm extends Form
                 ],
             ],
         ]);
+
+        $inputFilter->add([
+            'name' => 'author_id',
+            'required' => true
+        ]);
     }
 }
