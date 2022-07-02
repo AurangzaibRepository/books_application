@@ -1,6 +1,6 @@
 <?php
 
-namespace Album\Controller\Factory;
+namespace Book\Controller\Factory;
 
 use Interop\Container\ContainerInterface;
 use Zend\ServiceManager\Factory\FactoryInterface;

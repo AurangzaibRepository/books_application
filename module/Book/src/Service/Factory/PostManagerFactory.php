@@ -4,7 +4,7 @@ namespace Book\Service\Factory;
 
 use Interop\Container\ContainerInterface;
 use Zend\ServiceManager\Factory\FactoryInterface;
-use Album\Service\PostManager;
+use Book\Service\PostManager;
 
 /**
  * This factory class is used to instantiate post manager
