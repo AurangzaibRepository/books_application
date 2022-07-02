@@ -22,6 +22,12 @@ class Author
      */
     protected $name;
 
+    /**
+     * @ORM\OneToMany(targetEntity="\Book\Entity\Book", mappedBy="authors")
+     * @ORM\JoinColumn(name="id", referencedColumnName="author_id")
+     */
+    protected $books;
+
     public function getId()
     {
         return $this->id;
