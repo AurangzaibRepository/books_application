@@ -37,6 +37,12 @@ return [
         ]
     ],
 
+    'service_manager' => [
+        'factories' => [
+            Service\IndexManager::class => Service\Factory\IndexManagerFactory::class
+        ]
+    ],
+
     'doctrine' => [
         'driver' => [
             __NAMESPACE__ . '_driver' => [
