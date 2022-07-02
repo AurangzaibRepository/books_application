@@ -31,12 +31,13 @@ class PostController extends AbstractActionController
     {
         $form = new PostForm($this->entityManager);
 
+        // If post request
         if ($this->getRequest()->isPost()) {
             $data = $this->params()->fromPost();
             $form->setData($data);
 
             if ($form->isValid()) {
-                $this->save($form, $data);
+                $this->postManager->add($data);
                 return $this->redirect()->toRoute('book');
             }
         }
@@ -70,15 +71,17 @@ class PostController extends AbstractActionController
 
         $form->setData($this->postManager->transformData($book));
 
+        // If post request
+        if ($this->getRequest()->isPost()) {
+            $form->setData($this->params()->fromPost());
+
+            if ($form->isValid()) {
+                //$this->postManager->update($book, $form->getData());
+            }
+        }
+
         return new ViewModel([
             'form' => $form
         ]);
-    }
-
-
-    public function save(PostForm $form, array $data): void
-    {
-        $data = $form->getData();
-        $this->postManager->add($data);
     }
 }
