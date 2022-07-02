@@ -26,4 +26,13 @@ class PostController extends AbstractActionController
         $this->entityManager = $entityManager;
         $this->postManager = $postManager;
     }
+
+    public function addAction(): ViewModel
+    {
+        $form = new PostForm();
+
+        return new ViewModel([
+            'form' => $form
+        ]);
+    }
 }
