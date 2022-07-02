@@ -16,4 +16,14 @@ class PostManager
     {
         $this->entityManager = $entityManager;
     }
+
+    public function add($data)
+    {
+        $book = new Book();
+        $book->setTitle($data['title']);
+        $book->setDescription($data['description']);
+
+        $this->entityManager->persist($book);
+        $this->entityManager->flush();
+    }
 }
