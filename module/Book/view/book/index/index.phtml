@@ -16,6 +16,7 @@
                     <th>No</th>
                     <th>Title</th>
                     <th>Description</th>
+                    <th>Author</th>
                     <th></th>
                 </tr>
             </thead>
@@ -26,6 +27,8 @@
                     <td><?= $this->escapeHtml($book->getTitle()) ?>
                     </td>
                     <td><?= $this->escapeHtml($book->getDescription()) ?>
+                    </td>
+                    <td><?= $this->escapeHtml($book->getAuthor()->getName()) ?>
                     </td>
                     <td>
                         <a href="" class="btn btn-primary">Edit</a>
