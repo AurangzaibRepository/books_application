@@ -31,7 +31,8 @@
                     <td><?= $this->escapeHtml($book->getAuthor()->getName()) ?>
                     </td>
                     <td>
-                        <a href="" class="btn btn-primary">Edit</a>
+                        <a href="<?= $this->url('post', ['action' => 'edit', 'id' => $book->getId()]) ?>"
+                            class="btn btn-primary">Edit</a>
                         <a href="<?= $this->url('post', ['action' => 'delete', 'id' => $book->getId()]) ?>"
                             class="btn btn-secondary">Delete</a>
                     </td>
