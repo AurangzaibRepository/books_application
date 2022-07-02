@@ -34,6 +34,12 @@ class Book
      */
     protected $authorId;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="\Book\Entity\Author", inversedBy="books")
+     * @ORM\JoinColumn(name="author_id", referencedColumnName="id")
+     */
+    protected $author;
+
 
     public function getId()
     {
@@ -73,5 +79,10 @@ class Book
     public function setAuthorId($authorId)
     {
         $this->authorId = $authorId;
+    }
+
+    public function getAuthor()
+    {
+        return $this->author;
     }
 }
