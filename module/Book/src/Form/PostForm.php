@@ -16,7 +16,6 @@ class PostForm extends Form
     {
         parent::__construct('book-form');
         
-        $this->setAttribute('action', '/post/save');
         $this->addElements();
         $this->addInputFilters();
     }
