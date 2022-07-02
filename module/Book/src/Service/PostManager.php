@@ -3,6 +3,7 @@
 namespace Book\Service;
 
 use Book\Entity\Book;
+use Book\Entity\Author;
 
 class PostManager
 {
@@ -23,6 +24,7 @@ class PostManager
         $book->setTitle($data['title']);
         $book->setDescription($data['description']);
         $book->setAuthorId($data['author_id']);
+        $book->setAuthor($this->getAuthor($data['author_id']));
 
         $this->entityManager->persist($book);
         $this->entityManager->flush();
@@ -39,5 +41,12 @@ class PostManager
     {
         $this->entityManager->remove($book);
         $this->entityManager->flush();
+    }
+
+    private function getAuthor(int $id): Author
+    {
+        return $this->entityManager
+                    ->getRepository(Author::class)
+                    ->findOneById($id);
     }
 }
