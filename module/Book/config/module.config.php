@@ -30,5 +30,9 @@ return [
         ],
     ],
 
-
+    'view_manager' => [
+        'template_path_stack' => [
+            'book' => __DIR__ . '/../view'
+        ]
+    ]
 ];
