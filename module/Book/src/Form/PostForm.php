@@ -19,4 +19,37 @@ class PostForm extends Form
         $this->addElements();
         $this->addInputFilters();
     }
+
+    private function addElements()
+    {
+        $this->add([
+            'name' => 'title',
+            'type' => 'text',
+            'attributes' => [
+                'id' => 'title'
+            ],
+            'options' => [
+                'label' => 'Title'
+            ]
+        ]);
+
+        $this->add([
+            'name' => 'description',
+            'type' => 'textarea',
+            'attributes' => [
+                'id' => 'description'
+            ],
+            'options' => [
+                'label' => 'Description'
+            ]
+        ]);
+
+        $this->add([
+            'type' => 'submit',
+            'name' => 'submit',
+            'attributes' => [
+                'value' => 'Save'
+            ]
+        ]);
+    }
 }
