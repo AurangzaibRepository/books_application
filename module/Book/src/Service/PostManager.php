@@ -22,6 +22,7 @@ class PostManager
         $book = new Book();
         $book->setTitle($data['title']);
         $book->setDescription($data['description']);
+        $book->setAuthorId($data['author_id']);
 
         $this->entityManager->persist($book);
         $this->entityManager->flush();
