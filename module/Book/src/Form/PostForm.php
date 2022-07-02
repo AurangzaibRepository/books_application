@@ -24,24 +24,12 @@ class PostForm extends Form
     {
         $this->add([
             'name' => 'title',
-            'type' => 'text',
-            'attributes' => [
-                'id' => 'title'
-            ],
-            'options' => [
-                'label' => 'Title'
-            ]
+            'type' => 'text'
         ]);
 
         $this->add([
             'name' => 'description',
-            'type' => 'textarea',
-            'attributes' => [
-                'id' => 'description'
-            ],
-            'options' => [
-                'label' => 'Description'
-            ]
+            'type' => 'textarea'
         ]);
 
         $this->add([
