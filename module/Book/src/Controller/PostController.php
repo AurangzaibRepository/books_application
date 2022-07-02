@@ -46,6 +46,21 @@ class PostController extends AbstractActionController
         ]);
     }
 
+    public function deleteAction()
+    {
+        $bookId = $this->params()->fromRoute('id', 0);
+
+        $book = $this->postManager->getBook($bookId);
+
+        if ($book === null) {
+            $this->getResponse()->setStatusCode(404);
+            return;
+        }
+
+        $this->postManager->delete($book);
+        return $this->redirect()->toRoute('book');
+    }
+
     public function save(PostForm $form, array $data): void
     {
         $data = $form->getData();
