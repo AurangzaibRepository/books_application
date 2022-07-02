@@ -40,6 +40,14 @@ class PostForm extends Form
         ]);
 
         $this->add([
+            'name' => 'author_id',
+            'type' => 'select',
+            'attributes' => [
+                'class' => 'form-control'
+            ],
+        ]);
+
+        $this->add([
             'type' => 'submit',
             'name' => 'submit',
             'attributes' => [
