@@ -14,7 +14,7 @@ class IndexControllerFactory implements FactoryInterface
     public function __invoke(
         ContainerInterface $container,
         $requestName,
-        array $options = []
+        array $options = null
     ) {
         $entityManager = $container->get('doctrine.entitymanager.orm_default');
 
