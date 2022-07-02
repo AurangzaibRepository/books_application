@@ -45,6 +45,9 @@ class PostForm extends Form
             'attributes' => [
                 'class' => 'form-control'
             ],
+            'options' => [
+                'empty_option' => '-- Select --',
+            ]
         ]);
 
         $this->add([
