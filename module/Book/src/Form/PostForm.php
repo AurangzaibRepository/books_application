@@ -4,7 +4,7 @@ namespace Book\Form;
 
 use Zend\Form\Form;
 use Zend\InputFilter\InputFilter;
-use Album\Enity\Album;
+use Book\Entity\Author;
 use Zend\Validator\NotEmpty;
 
 /**
@@ -12,8 +12,11 @@ use Zend\Validator\NotEmpty;
  */
 class PostForm extends Form
 {
-    public function __construct()
+    private $entityManager;
+
+    public function __construct($entityManager)
     {
+        $this->entityManager = $entityManager;
         parent::__construct('book-form');
         
         $this->addElements();
@@ -47,6 +50,7 @@ class PostForm extends Form
             ],
             'options' => [
                 'empty_option' => '-- Select --',
+                'value_options' => $this->getAuthors()
             ]
         ]);
 
@@ -99,5 +103,23 @@ class PostForm extends Form
             'name' => 'author_id',
             'required' => true
         ]);
+    }
+
+    private function getAuthors(): array
+    {
+        $response = [];
+
+        $data = $this->entityManager
+                        ->getRepository(Author::class)
+                        ->findBy(
+                            [],
+                            ['name' => 'asc']
+                        );
+        
+        foreach ($data as $row) {
+            $response[$row->getName()] = $row->getName();
+        }
+
+        return $response;
     }
 }

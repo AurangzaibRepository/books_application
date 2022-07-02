@@ -29,7 +29,7 @@ class PostController extends AbstractActionController
 
     public function addAction(): ViewModel
     {
-        $form = new PostForm();
+        $form = new PostForm($this->entityManager);
 
         if ($this->getRequest()->isPost()) {
             $data = $this->params()->fromPost();
