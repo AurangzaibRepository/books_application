@@ -15,4 +15,16 @@ class IndexManager
     {
         $this->entityManager = $entityManager;
     }
+
+    public function getList(): array
+    {
+        $data = $this->entityManager
+                    ->getRepository(Book::class)
+                    ->findBy(
+                        [],
+                        ['id' => 'desc']
+                    );
+                    
+        return $data;
+    }
 }
