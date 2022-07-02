@@ -24,19 +24,27 @@ class PostForm extends Form
     {
         $this->add([
             'name' => 'title',
-            'type' => 'text'
+            'type' => 'text',
+            'attributes' => [
+                'class' => 'form-control'
+            ]
         ]);
 
         $this->add([
             'name' => 'description',
-            'type' => 'textarea'
+            'type' => 'textarea',
+            'attributes' => [
+                'class' => 'form-control',
+                'rows' => 6
+            ]
         ]);
 
         $this->add([
             'type' => 'submit',
             'name' => 'submit',
             'attributes' => [
-                'value' => 'Save'
+                'value' => 'Save',
+                'class' => 'btn btn-primary'
             ]
         ]);
     }
