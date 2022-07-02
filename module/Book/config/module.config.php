@@ -8,7 +8,8 @@ use Doctrine\ORM\Mapping\Driver\AnnotationDriver;
 return [
     'controllers' => [
         'factories' => [
-            Controller\IndexController::class => Controller\Factory\IndexControllerFactory::class
+            Controller\IndexController::class => Controller\Factory\IndexControllerFactory::class,
+            Controller\PostController::class => Controller\Factory\PostControllerFactory::class
         ]
     ],
 
@@ -53,7 +54,8 @@ return [
 
     'service_manager' => [
         'factories' => [
-            Service\IndexManager::class => Service\Factory\IndexManagerFactory::class
+            Service\IndexManager::class => Service\Factory\IndexManagerFactory::class,
+            Service\PostManager::class => Service\Factory\PostManagerFactory::class
         ]
     ],
 
