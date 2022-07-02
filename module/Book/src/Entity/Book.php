@@ -29,6 +29,12 @@ class Book
      */
     protected $description;
 
+    /**
+     * @ORM\Column(name="author_id")
+     */
+    protected $authorId;
+
+
     public function getId()
     {
         return $this->id;
@@ -57,5 +63,15 @@ class Book
     public function setDescription($description)
     {
         $this->description = $description;
+    }
+
+    public function getAuthorId()
+    {
+        return $this->authorId;
+    }
+
+    public function setAuthorId($authorId)
+    {
+        $this->authorId = $authorId;
     }
 }

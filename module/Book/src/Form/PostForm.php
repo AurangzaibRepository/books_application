@@ -117,7 +117,7 @@ class PostForm extends Form
                         );
         
         foreach ($data as $row) {
-            $response[$row->getName()] = $row->getName();
+            $response[$row->getId()] = $row->getName();
         }
 
         return $response;
