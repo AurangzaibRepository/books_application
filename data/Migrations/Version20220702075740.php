@@ -21,6 +21,7 @@ final class Version20220702075740 extends AbstractMigration
         $table->addColumn('id', 'integer', ['autoincrement' => true]);
         $table->addColumn('title', 'string', ['notnull' => true, 'length' => 80]);
         $table->addColumn('description', 'text', ['notnull' => true]);
+        $table->addColumn('author_id', 'integer', ['notnull' => true]);
         $table->setPrimaryKey(['id']);
     }
 
