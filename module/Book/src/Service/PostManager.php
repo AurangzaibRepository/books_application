@@ -21,9 +21,7 @@ class PostManager
     public function add(array $data): void
     {
         $book = new Book();
-        $book->setTitle($data['title']);
-        $book->setDescription($data['description']);
-        $book->setAuthorId($data['author_id']);
+        $book = $this->setEntityData($book, $data);
         $book->setAuthor($this->getAuthor($data['author_id']));
 
         $this->entityManager->persist($book);
@@ -32,10 +30,7 @@ class PostManager
 
     public function update(Book $book, array $data): void
     {
-        $book->setTitle($data['title']);
-        $book->setDescription($data['description']);
-        $book->setAuthorId($data['author_id']);
-
+        $book = $this->setEntityData($book, $data);
         $this->entityManager->flush();
     }
 
@@ -66,5 +61,14 @@ class PostManager
         return $this->entityManager
                     ->getRepository(Author::class)
                     ->findOneById($id);
+    }
+
+    private function setEntityData(Book $book, $data): Book
+    {
+        $book->setTitle($data['title']);
+        $book->setDescription($data['description']);
+        $book->setAuthorId($data['author_id']);
+
+        return $book;
     }
 }
