@@ -9,7 +9,7 @@ class IndexManager
     /**
      * @var Doctrine\ORM\EntityManager
      */
-    protected $entityManager;
+    private $entityManager;
 
     public function __construct($entityManager)
     {

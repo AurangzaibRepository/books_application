@@ -11,7 +11,7 @@ class IndexController extends AbstractActionController
      * Index Manager
      * @var Book\Service\IndexManager
      */
-    protected $indexManager;
+    private $indexManager;
 
     public function __construct($indexManager)
     {
