@@ -11,6 +11,17 @@
                     <th>Description</th>
                 </tr>
             </thead>
+            <tbody>
+                <?php foreach ($bookList as $book): ?>
+                <tr>
+                    <td>1</td>
+                    <td><?= $this->escapeHtml($book->getTitle()) ?>
+                    </td>
+                    <td><?= $this->escapeHtml($book->getDescription()) ?>
+                    </td>
+                </tr>
+                <?php endforeach ?>
+            </tbody>
         </table>
     </div>
 </div>
