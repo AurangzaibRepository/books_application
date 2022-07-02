@@ -5,6 +5,7 @@ namespace Book\Controller\Factory;
 use Interop\Container\ContainerInterface;
 use Zend\ServiceManager\Factory\FactoryInterface;
 use Book\Controller\IndexController;
+use Book\Service\IndexManager;
 
 /**
  * This is factory which is used to instantiate book index controller
@@ -16,8 +17,8 @@ class IndexControllerFactory implements FactoryInterface
         $requestName,
         array $options = null
     ) {
-        $entityManager = $container->get('doctrine.entitymanager.orm_default');
+        $indexManager = $container->get(IndexManager::class);
 
-        return new IndexController($entityManager);
+        return new IndexController($indexManager);
     }
 }

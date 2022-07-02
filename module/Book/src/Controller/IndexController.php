@@ -4,22 +4,26 @@ namespace Book\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
-use Book\Entity\Book;
 
 class IndexController extends AbstractActionController
 {
     /**
-     * @var Doctrine\ORM\EntityManager
+     * Index Manager
+     * @var Book\Service\IndexManager
      */
-    protected $entityManager;
+    protected $indexManager;
 
-    public function __construct($entityManager)
+    public function __construct($indexManager)
     {
-        $this->entityManager = $entityManager;
+        $this->indexManager = $indexManager;
     }
 
-    public function indexAction()
+    public function indexAction(): ViewModel
     {
-        return new ViewModel();
+        $bookList = $this->indexManager->getList();
+
+        return new ViewModel([
+            'bookList' => $bookList
+        ]);
     }
 }
