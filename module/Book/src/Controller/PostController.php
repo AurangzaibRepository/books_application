@@ -31,8 +31,24 @@ class PostController extends AbstractActionController
     {
         $form = new PostForm();
 
+        if ($this->getRequest()->isPost()) {
+            $data = $this->params()->fromPost();
+            $form->setData($data);
+
+            if ($form->isValid()) {
+                $this->save($form, $data);
+                return $this->redirect()->toRoute('book');
+            }
+        }
+
         return new ViewModel([
             'form' => $form
         ]);
+    }
+
+    public function save(PostForm $form, array $data): void
+    {
+        $data = $form->getData();
+        $this->postManager->add($data);
     }
 }
