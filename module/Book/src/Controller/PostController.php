@@ -61,6 +61,17 @@ class PostController extends AbstractActionController
         return $this->redirect()->toRoute('book');
     }
 
+
+    public function editAction()
+    {
+        $form = new PostForm($this->entityManager);
+
+        return new ViewModel([
+            'form' => $form
+        ]);
+    }
+
+
     public function save(PostForm $form, array $data): void
     {
         $data = $form->getData();
