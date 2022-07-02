@@ -18,7 +18,7 @@ class PostManager
         $this->entityManager = $entityManager;
     }
 
-    public function add($data): void
+    public function add(array $data): void
     {
         $book = new Book();
         $book->setTitle($data['title']);
@@ -27,6 +27,15 @@ class PostManager
         $book->setAuthor($this->getAuthor($data['author_id']));
 
         $this->entityManager->persist($book);
+        $this->entityManager->flush();
+    }
+
+    public function update(Book $book, array $data): void
+    {
+        $book->setTitle($data['title']);
+        $book->setDescription($data['description']);
+        $book->setAuthorId($data['author_id']);
+
         $this->entityManager->flush();
     }
 

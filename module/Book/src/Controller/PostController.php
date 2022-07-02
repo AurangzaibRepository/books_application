@@ -73,10 +73,12 @@ class PostController extends AbstractActionController
 
         // If post request
         if ($this->getRequest()->isPost()) {
-            $form->setData($this->params()->fromPost());
+            $data = $this->params()->fromPost();
+            $form->setData($data);
 
             if ($form->isValid()) {
-                //$this->postManager->update($book, $form->getData());
+                $this->postManager->update($book, $data);
+                return $this->redirect()->toRoute('book');
             }
         }
 
