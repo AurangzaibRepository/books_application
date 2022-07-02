@@ -57,7 +57,7 @@ class PostForm extends Form
         $inputFilter->add([
             'name' => 'title',
             'required' => true,
-            'validator' => [
+            'validators' => [
                 [
                     'name' => 'NotEmpty',
                     'options' => [
@@ -70,7 +70,7 @@ class PostForm extends Form
         ]);
 
         $inputFilter->add([
-            'name' => 'descripion',
+            'name' => 'description',
             'required' => true,
             'validators' => [
                 [
