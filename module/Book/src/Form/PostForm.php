@@ -14,7 +14,7 @@ class PostForm extends Form
 {
     public function __construct()
     {
-        parent::construct('book-form');
+        parent::__construct('book-form');
         
         $this->addElements();
         $this->addInputFilters();
