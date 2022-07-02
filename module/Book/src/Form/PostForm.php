@@ -23,7 +23,7 @@ class PostForm extends Form
         $this->addInputFilters();
     }
 
-    private function addElements()
+    private function addElements(): void
     {
         $this->add([
             'name' => 'title',
@@ -64,7 +64,7 @@ class PostForm extends Form
         ]);
     }
 
-    private function addInputFilters()
+    private function addInputFilters(): void
     {
         $inputFilter = new InputFilter();
         $this->setInputFilter($inputFilter);
