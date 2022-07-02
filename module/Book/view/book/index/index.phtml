@@ -1,4 +1,6 @@
-<h3>Books</h3>
+<?= $this->headTitle('Books') ?>
+
+<h4>Books</h4>
 <br />
 
 <div class="row">
@@ -9,6 +11,7 @@
                     <th>No</th>
                     <th>Title</th>
                     <th>Description</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -18,6 +21,10 @@
                     <td><?= $this->escapeHtml($book->getTitle()) ?>
                     </td>
                     <td><?= $this->escapeHtml($book->getDescription()) ?>
+                    </td>
+                    <td>
+                        <a href="" class="btn btn-primary">Edit</a>
+                        <a href="" class="btn btn-secondary">Delete</a>
                     </td>
                 </tr>
                 <?php endforeach ?>
