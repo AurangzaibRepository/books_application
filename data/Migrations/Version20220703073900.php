@@ -13,9 +13,9 @@ final class Version20220703073900 extends AbstractMigration
     public function up(Schema $schema) : void
     {
         $table = $schema->createTable('categories');
-        $schema->addColumn('id', 'integer', ['notnull' => true]);
-        $schema->addColumn('string', 'name', ['notnull' => true]);
-        $schema->setPrimaryKey(['id']);
+        $table->addColumn('id', 'integer', ['notnull' => true]);
+        $table->addColumn('name', 'string', ['notnull' => true]);
+        $table->setPrimaryKey(['id']);
     }
 
     public function down(Schema $schema) : void
