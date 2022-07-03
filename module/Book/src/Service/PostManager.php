@@ -4,6 +4,7 @@ namespace Book\Service;
 
 use Book\Entity\Book;
 use Book\Entity\Author;
+use Book\Entity\Category;
 
 class PostManager
 {
@@ -23,6 +24,7 @@ class PostManager
         $book = new Book();
         $book = $this->setEntityData($book, $data);
         $book->setAuthor($this->getAuthor($data['author_id']));
+        $this->addCategories($data['category_ids'], $book);
 
         $this->entityManager->persist($book);
         $this->entityManager->flush();
@@ -70,5 +72,16 @@ class PostManager
         $book->setAuthorId($data['author_id']);
 
         return $book;
+    }
+
+    private function addCategories(array $categoryIds, Book $book): void
+    {
+        foreach ($categoryIds as $categoryId) {
+            $category = $this->entityManager
+                                ->getRepository(Category::class)
+                                ->findOneById($categoryId);
+
+            $book->addCategory($category);
+        }
     }
 }
