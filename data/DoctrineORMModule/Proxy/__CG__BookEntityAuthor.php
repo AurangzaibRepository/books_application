@@ -66,10 +66,10 @@ class Author extends \Book\Entity\Author implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', 'id', 'name', 'books'];
+            return ['__isInitialized__', 'id', 'name'];
         }
 
-        return ['__isInitialized__', 'id', 'name', 'books'];
+        return ['__isInitialized__', 'id', 'name'];
     }
 
     /**
@@ -179,7 +179,7 @@ class Author extends \Book\Entity\Author implements \Doctrine\ORM\Proxy\Proxy
     /**
      * {@inheritDoc}
      */
-    public function getId()
+    public function getId(): int
     {
         if ($this->__isInitialized__ === false) {
             return  parent::getId();
@@ -194,18 +194,18 @@ class Author extends \Book\Entity\Author implements \Doctrine\ORM\Proxy\Proxy
     /**
      * {@inheritDoc}
      */
-    public function setId($id)
+    public function setId(int $id): void
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setId', [$id]);
 
-        return parent::setId($id);
+        parent::setId($id);
     }
 
     /**
      * {@inheritDoc}
      */
-    public function getName()
+    public function getName(): string
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getName', []);
@@ -216,12 +216,12 @@ class Author extends \Book\Entity\Author implements \Doctrine\ORM\Proxy\Proxy
     /**
      * {@inheritDoc}
      */
-    public function setName($name)
+    public function setName(string $name): void
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setName', [$name]);
 
-        return parent::setName($name);
+        parent::setName($name);
     }
 
 }

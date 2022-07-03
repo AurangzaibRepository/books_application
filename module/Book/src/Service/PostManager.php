@@ -24,7 +24,6 @@ class PostManager
         $book = new Book();
         $book = $this->setEntityData($book, $data);
         $book->setAuthor($this->getAuthor($data['author_id']));
-        $this->addCategories($data['category_ids'], $book);
 
         $this->entityManager->persist($book);
         $this->entityManager->flush();
@@ -71,12 +70,19 @@ class PostManager
         $book->setTitle($data['title']);
         $book->setDescription($data['description']);
         $book->setAuthorId($data['author_id']);
+        $this->addCategories($data['category_ids'], $book);
 
         return $book;
     }
 
     private function addCategories(array $categoryIds, Book $book): void
     {
+        $bookCategories = $book->getCategories();
+
+        foreach ($bookCategories as $category) {
+            $book->removeCategory($category);
+        }
+
         foreach ($categoryIds as $categoryId) {
             $category = $this->entityManager
                                 ->getRepository(Category::class)
