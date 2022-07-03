@@ -55,9 +55,15 @@ class Book
         $this->categories = new ArrayCollection();
     }
 
-    public function getCategories()
+    public function getCategories(): string
     {
-        return $this->categories;
+        $categoryString = '';
+
+        foreach ($this->categories as $category) {
+            $categoryString .= "{$category->getName()}, ";
+        }
+
+        return rtrim($categoryString, ', ');
     }
 
     public function addCategory($category): void
