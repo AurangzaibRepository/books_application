@@ -32,7 +32,7 @@
                     </td>
                     <td><?= $this->escapeHtml($book->getAuthor()->getName()) ?>
                     </td>
-                    <td><?= $this->escapeHtml($book->getcategories()) ?>
+                    <td><?= $this->escapeHtml($book->getCategoryString()) ?>
                     </td>
                     <td>
                         <a href="<?= $this->url('post', ['action' => 'edit', 'id' => $book->getId()]) ?>"
