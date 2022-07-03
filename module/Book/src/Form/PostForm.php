@@ -63,7 +63,6 @@ class PostForm extends Form
                 'multiple' => 'multiple'
             ],
             'options' => [
-                'empty_option' => '-- Select --',
                 'value_options' => $this->getCategories()
             ]
         ]);
