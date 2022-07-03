@@ -32,6 +32,12 @@ div.container a.navbar-brand > img {
     margin-top: -2px;
 }
 
+.page-header {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 7px 0px;
+}
+
 table th, table tr {
     font-size: 15px;
 }
@@ -43,7 +49,8 @@ table th {
     padding: 10px !important
 }
 
-table .btn {
+table .btn,
+form .btn {
     font-size: 14px;
     min-width: 60px;
     padding: 4px;
@@ -52,4 +59,14 @@ table .btn {
 table .btn-primary {
     margin-right: 3px;
 }
+
+textarea {
+    resize: none
+}
+
+form label,
+form .form-control {
+    font-size: 15px
+}
+
 
