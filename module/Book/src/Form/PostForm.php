@@ -5,6 +5,7 @@ namespace Book\Form;
 use Zend\Form\Form;
 use Zend\InputFilter\InputFilter;
 use Book\Entity\Author;
+use Book\Entity\Category;
 use Zend\Validator\NotEmpty;
 
 /**
@@ -60,6 +61,10 @@ class PostForm extends Form
             'attributes' => [
                 'class' => 'form-control',
                 'multiple' => 'multiple'
+            ],
+            'options' => [
+                'empty_option' => '-- Select --',
+                'value_options' => $this->getCategories()
             ]
         ]);
 
@@ -121,8 +126,6 @@ class PostForm extends Form
 
     private function getAuthors(): array
     {
-        $response = [];
-
         $data = $this->entityManager
                         ->getRepository(Author::class)
                         ->findBy(
@@ -130,6 +133,25 @@ class PostForm extends Form
                             ['name' => 'asc']
                         );
         
+        return $this->transformArray($data);
+    }
+
+    private function getCategories(): array
+    {
+        $data = $this->entityManager
+                        ->getRepository(Category::class)
+                        ->findBy(
+                            [],
+                            ['name' => 'asc']
+                        );
+
+        return $this->transformArray($data);
+    }
+
+    private function transformArray($data): array
+    {
+        $response = [];
+
         foreach ($data as $row) {
             $response[$row->getId()] = $row->getName();
         }
