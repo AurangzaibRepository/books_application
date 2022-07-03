@@ -112,6 +112,11 @@ class PostForm extends Form
             'name' => 'author_id',
             'required' => true
         ]);
+
+        $inputFilter->add([
+            'name' => 'caregory_ids',
+            'required' => true
+        ]);
     }
 
     private function getAuthors(): array
