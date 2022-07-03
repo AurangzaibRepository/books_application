@@ -21,9 +21,10 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($bookList as $book): ?>
+                <?php foreach ($bookList as $key => $book): ?>
                 <tr>
-                    <td>1</td>
+                    <td><?= ++$key; ?>
+                    </td>
                     <td><?= $this->escapeHtml($book->getTitle()) ?>
                     </td>
                     <td><?= $this->escapeHtml($book->getDescription()) ?>
