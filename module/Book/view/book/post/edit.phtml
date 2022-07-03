@@ -8,13 +8,13 @@
         <div class="form-group">
             <?= $this->formLabel($form->get('title'), 'Title'); ?>
             <?= $this->formElement($form->get('title')); ?>
-            <?= $this->formElementErrors($form->get('title')); ?>
+            <?= $this->formElementErrors($form->get('title'), ['class' => 'error']); ?>
         </div>
 
         <div class="form-group">
             <?= $this->formLabel($form->get('description'), 'Description'); ?>
             <?= $this->formElement($form->get('description')); ?>
-            <?= $this->formElementErrors($form->get('description')); ?>
+            <?= $this->formElementErrors($form->get('description'), ['class' => 'error']); ?>
         </div>
 
         <?= $this->formElement($form->get('submit')) ?>
@@ -26,13 +26,13 @@
         <div class="form-group">
             <?= $this->formLabel($form->get('author_id'), 'Author'); ?>
             <?= $this->formElement($form->get('author_id')); ?>
-            <?= $this->formElementErrors($form->get('author_id')); ?>
+            <?= $this->formElementErrors($form->get('author_id'), ['class' => 'error']); ?>
         </div>
 
         <div class="form-group">
             <?= $this->formLabel($form->get('category_ids'), 'Categories'); ?>
             <?= $this->formElement($form->get('category_ids')); ?>
-            <?= $this->formElementErrors($form->get('category_ids')); ?>
+            <?= $this->formElementErrors($form->get('category_ids'), ['class' => 'error']); ?>
         </div>
     </div>
 </div>
