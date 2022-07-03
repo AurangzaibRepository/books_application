@@ -6,7 +6,7 @@ use Doctrine\DBAL\Schema\Schema;
 use Doctrine\Migrations\AbstractMigration;
 
 /**
- * Auto-generated Migration: Please modify to your needs!
+ * This migration is used to define relation between book and author
  */
 final class Version20220702100950 extends AbstractMigration
 {
