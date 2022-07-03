@@ -6,19 +6,20 @@ use Doctrine\DBAL\Schema\Schema;
 use Doctrine\Migrations\AbstractMigration;
 
 /**
- * Auto-generated Migration: Please modify to your needs!
+ * This is migration for categories table
  */
 final class Version20220703073900 extends AbstractMigration
 {
     public function up(Schema $schema) : void
     {
-        // this up() migration is auto-generated, please modify it to your needs
-
+        $table = $schema->createTable('categories');
+        $schema->addColumn('id', 'integer', ['notnull' => true]);
+        $schema->addColumn('string', 'name', ['notnull' => true]);
+        $schema->setPrimaryKey(['id']);
     }
 
     public function down(Schema $schema) : void
     {
-        // this down() migration is auto-generated, please modify it to your needs
-
+        $schema->dropTable('categories');
     }
 }
