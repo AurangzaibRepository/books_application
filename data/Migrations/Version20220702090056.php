@@ -18,7 +18,7 @@ final class Version20220702090056 extends AbstractMigration
     public function up(Schema $schema) : void
     {
         $table = $schema->createTable('authors');
-        $table->addColumn('id', 'integer', ['notnull' => true]);
+        $table->addColumn('id', 'integer', ['notnull' => true, 'autoincrement' => true]);
         $table->addColumn('name', 'string', ['notnull' => true, 'length' => 80]);
         $table->setPrimaryKey(['id']);
     }
