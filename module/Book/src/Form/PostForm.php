@@ -118,7 +118,7 @@ class PostForm extends Form
         ]);
 
         $inputFilter->add([
-            'name' => 'caregory_ids',
+            'name' => 'category_ids',
             'required' => true
         ]);
     }
