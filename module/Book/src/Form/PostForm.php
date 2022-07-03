@@ -55,6 +55,15 @@ class PostForm extends Form
         ]);
 
         $this->add([
+            'name' => 'category_ids',
+            'type' => 'select',
+            'attributes' => [
+                'class' => 'form-control',
+                'multiple' => 'multiple'
+            ]
+        ]);
+
+        $this->add([
             'type' => 'submit',
             'name' => 'submit',
             'attributes' => [
