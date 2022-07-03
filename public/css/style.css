@@ -32,6 +32,17 @@ div.container a.navbar-brand > img {
     margin-top: -2px;
 }
 
+table th, table tr {
+    font-size: 15px;
+}
+
+table th {
+    background: #0069d9;
+    color: white;
+    font-weight: 600;
+    padding: 10px !important
+}
+
 table .btn {
     font-size: 14px;
     min-width: 65px;
