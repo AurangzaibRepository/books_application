@@ -54,7 +54,8 @@ class PostManager
         return [
             'title' => $book->getTitle(),
             'description' => $book->getDescription(),
-            'author_id' => $book->getAuthorId()
+            'author_id' => $book->getAuthorId(),
+            'category_ids' => $book->getCategoryIds()
         ];
     }
 

@@ -62,8 +62,17 @@ class Book
         foreach ($this->categories as $category) {
             $categoryString .= "{$category->getName()}, ";
         }
-
         return rtrim($categoryString, ', ');
+    }
+
+    public function getCategoryIds(): array
+    {
+        $idList = [];
+
+        foreach ($this->categories as $category) {
+            $idList[] = $category->getId();
+        }
+        return $idList;
     }
 
     public function addCategory($category): void
