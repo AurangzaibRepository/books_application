@@ -3,6 +3,7 @@
 namespace Book\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * This class represents books table
@@ -39,6 +40,35 @@ class Book
      * @ORM\JoinColumn(name="author_id", referencedColumnName="id")
      */
     protected $author;
+
+    /**
+   * @ORM\ManyToMany(targetEntity="\Book\Entity\Category", inversedBy="books")
+   * @ORM\JoinTable(name="book_categories",
+   *      joinColumns={@ORM\JoinColumn(name="book_id", referencedColumnName="id")},
+   *      inverseJoinColumns={@ORM\JoinColumn(name="category_id", referencedColumnName="id")}
+   *      )
+   */
+    protected $categories;
+
+    public function __construct()
+    {
+        $this->categories = new ArrayCollection();
+    }
+
+    public function getCategories()
+    {
+        return $this->categories;
+    }
+
+    public function addCategory($category): void
+    {
+        $this->categories[] = $category;
+    }
+
+    public function removeCategory($category): void
+    {
+        $this->categories->removeElement($category);
+    }
 
 
     public function getId(): int
