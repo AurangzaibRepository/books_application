@@ -69,4 +69,11 @@ form .form-control {
     font-size: 15px
 }
 
+ul.error {
+    color: red;
+    font-size: 14px;
+    list-style: none;
+    padding: 0px;
+}
+
 
